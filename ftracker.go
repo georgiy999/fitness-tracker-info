@@ -82,8 +82,13 @@ const (
 // duration float64 — длительность тренировки в часах.
 func RunningSpentCalories(action int, weight, duration float64) float64 {
     // ваш код здесь
-    ...
+    result := ((runningCaloriesMeanSpeedMultiplier * meanSpeed(action, duration) * runningCaloriesMeanSpeedShift) * weight / mInKm * duration * minInH)
+    return result
 }
+
+/*
+((18 * СредняяСкоростьВКм/ч * 1.79) * ВесСпортсменаВКг / mInKM * ВремяТренировкиВЧасах * minInH) 
+*/
 
 // Константы для расчета калорий, расходуемых при ходьбе.
 const (
