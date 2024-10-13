@@ -106,8 +106,14 @@ const (
 // height float64 — рост пользователя.
 func WalkingSpentCalories(action int, duration, weight, height float64) float64 {
     // ваш код здесь
-    ...
+    result := ((walkingCaloriesWeightMultiplier * weight + (math.Pow(meanSpeed(action, duration), 2) / height) * walkingSpeedHeightMultiplier * weight) * duration * minInH)
+    return result
 }
+
+/*
+((0.035 * ВесСпортсменаВКг + (СредняяСкоростьВМетрахВСекунду**2 / РостВМетрах)
+ * 0.029 * ВесСпортсменаВКг) * ВремяТренировкиВЧасах * minInH) 
+*/
 
 // Константы для расчета калорий, расходуемых при плавании.
 const (
